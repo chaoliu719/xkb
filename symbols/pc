@@ -3,20 +3,13 @@ default partial alphanumeric_keys modifier_keys
 xkb_symbols "pc105" {
 
     key  <ESC> {[  Escape  ]};
-
-    // FN + TAB -> Ctrl + Insert (for copy)
-    key  <TAB> {
-        type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [ Tab,        ISO_Left_Tab,   NoSymbol        ],
-        actions[Group1]= [ NoAction(), NoAction(),     RedirectKey(key=<INS>, clearmods=Mod5, mods=Control)    ]
-    };
-
+    key  <TAB> {[  Tab,  ISO_Left_Tab  ]};
     key <CAPS> {[  Caps_Lock  ]};
 
     // FN + BKSP -> Delete
     key <BKSP> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [ BackSpace, BackSpace, Delete ]
+        symbols[Group1]= [ BackSpace, BackSpace, Delete, Delete ]
     };
 
     key <BKSL> {[  backslash,  bar  ]};
@@ -25,12 +18,7 @@ xkb_symbols "pc105" {
     // The extra key on many European keyboards:
     key <LSGT> {[  less,  greater,    bar,  brokenbar  ]};
 
-    // FN + SPACE -> Shift + Insert (for paste)
-    key <SPCE> 	{
-        type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [ space,	space,	NoSymbol,	NoSymbol],
-        actions[Group1]= [ NoAction(),	NoAction(),	RedirectKey(key=<INS>, clearmods=Mod5, mods=Shift),	RedirectKey(key=<INS>, clearmods=Mod5, mods=Shift)	]
-    };
+    key <SPCE> {[  space  ]};
 
     key <LFSH> {[  Shift_L    ]};
     key <RTSH> {[  Shift_R    ]};
